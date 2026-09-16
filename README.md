@@ -1,26 +1,6 @@
-<<<<<<< HEAD
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/88c68863-257f-4619-8ce0-e336bc466fb9
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-=======
 # Mais Contratos
+
+
 
 > **Plataforma Corporativa de Gestão do Ciclo de Vida de Contratos (CLM), Governança de Fornecedores e Controle de Vencimentos.**
 
@@ -224,5 +204,3 @@ O sistema possui controle rígido de autorização baseado nas seguintes alçada
 - **LGPD & Governança de Dados**: Princípio do menor privilégio aplicado à visualização de contratos e dados societários de fornecedores.
 - **ICP-Brasil**: Compatibilidade estrutural para aposição de assinaturas digitais com carimbo do tempo e certificados padrão A1/A3.
 - **Rastreabilidade Criptográfica**: Todos os registros de auditoria contam com hash unidirecional (SHA-256) encadeado para garantir a não-repudiação das ações.
-
->>>>>>> origin/master
