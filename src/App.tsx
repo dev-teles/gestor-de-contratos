@@ -28,6 +28,10 @@ import { SettingsView } from './components/SettingsView';
 import { ProfileView } from './components/ProfileView';
 import { SearchModal } from './components/SearchModal';
 import { SimulatedAlertModal } from './components/SimulatedAlertModal';
+<<<<<<< HEAD
+=======
+import { LoginView } from './components/LoginView';
+>>>>>>> origin/master
 import { simulateContractAlert, SimulatedAlertEmail } from './utils/alertSimulator';
 import { useContractExpirationMonitor } from './hooks/useContractExpirationMonitor';
 import { calculateDaysRemaining } from './utils/contractMonitor';
@@ -44,6 +48,18 @@ export default function App() {
   const [selectedContract, setSelectedContract] = useState<Contract | null>(null);
   const [auditFilterResource, setAuditFilterResource] = useState<string>('');
 
+<<<<<<< HEAD
+=======
+  // Authentication gate: Required to access the application
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    try {
+      return sessionStorage.getItem('maiscontratos_logged_in') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+>>>>>>> origin/master
   // Enforce Light Mode strictly across the application
   useEffect(() => {
     document.documentElement.classList.remove('dark');
@@ -212,6 +228,59 @@ export default function App() {
     setAuditLogs((prev) => [log, ...prev]);
   };
 
+<<<<<<< HEAD
+=======
+  const handleLogin = (credentials: {
+    email: string;
+    password: string;
+    role: UserRole;
+    name: string;
+  }) => {
+    setCurrentRole(credentials.role);
+    setUserProfile((prev) => ({
+      ...prev,
+      name: credentials.name || prev.name,
+      email: credentials.email || prev.email,
+      role: credentials.role,
+    }));
+    setIsAuthenticated(true);
+    try {
+      sessionStorage.setItem('maiscontratos_logged_in', 'true');
+      sessionStorage.setItem('maiscontratos_user_email', credentials.email);
+      sessionStorage.setItem('maiscontratos_user_role', credentials.role);
+      sessionStorage.setItem('maiscontratos_user_name', credentials.name);
+    } catch {}
+
+    addAuditLog({
+      action: 'LOGIN_REALIZADO',
+      detail: `Sessão corporativa autenticada com sucesso para ${credentials.name} (${credentials.email})`,
+      resource: credentials.email,
+      resourceType: 'sistema',
+      type: 'security',
+      severity: 'baixo',
+    });
+  };
+
+  const handleLogout = () => {
+    addAuditLog({
+      action: 'LOGOUT_REALIZADO',
+      detail: `Sessão encerrada com segurança pelo usuário ${userProfile.name} (${userProfile.email})`,
+      resource: userProfile.email,
+      resourceType: 'sistema',
+      type: 'security',
+      severity: 'baixo',
+    });
+
+    setIsAuthenticated(false);
+    try {
+      sessionStorage.removeItem('maiscontratos_logged_in');
+      sessionStorage.removeItem('maiscontratos_user_email');
+      sessionStorage.removeItem('maiscontratos_user_role');
+      sessionStorage.removeItem('maiscontratos_user_name');
+    } catch {}
+  };
+
+>>>>>>> origin/master
   const handleAddSupplier = (newSupplier: Supplier) => {
     setSuppliers((prev) => [newSupplier, ...prev]);
 
@@ -399,6 +468,19 @@ export default function App() {
     setIsSimulatedAlertModalOpen(true);
   };
 
+<<<<<<< HEAD
+=======
+  // Enforce login screen: User MUST be authenticated to access the CLM platform
+  if (!isAuthenticated) {
+    return (
+      <LoginView
+        onLogin={handleLogin}
+        defaultEmail={userProfile?.email}
+      />
+    );
+  }
+
+>>>>>>> origin/master
   return (
     <div className="flex h-screen w-full bg-[#f7f9fd] text-[#0b1c30] font-sans overflow-hidden antialiased select-none selection:bg-[#0051d5] selection:text-white">
       {/* In-Flow Enterprise Sidebar */}
@@ -417,6 +499,10 @@ export default function App() {
         setIsCollapsed={setIsSidebarCollapsed}
         isMobileOpen={isMobileSidebarOpen}
         setIsMobileOpen={setIsMobileSidebarOpen}
+<<<<<<< HEAD
+=======
+        onLogout={handleLogout}
+>>>>>>> origin/master
       />
 
       {/* Main View Area */}
@@ -425,6 +511,10 @@ export default function App() {
         <Header
           currentRole={currentRole}
           userProfile={userProfile}
+<<<<<<< HEAD
+=======
+          onLogout={handleLogout}
+>>>>>>> origin/master
           onOpenProfile={() => {
             setSelectedContract(null);
             setActiveTab('perfil');

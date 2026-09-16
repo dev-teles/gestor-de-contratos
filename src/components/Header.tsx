@@ -21,6 +21,7 @@ interface HeaderProps {
   isSidebarCollapsed?: boolean;
   onToggleCollapse?: () => void;
   onRoleChange?: (role: UserRole) => void;
+  onLogout?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -41,6 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
   isSidebarCollapsed = false,
   onToggleCollapse,
   onRoleChange,
+  onLogout,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -375,6 +377,20 @@ export const Header: React.FC<HeaderProps> = ({
                   <span className="material-symbols-outlined text-[16px] text-[#0051d5]">badge</span>
                   <span>Meu Perfil & Credenciais</span>
                 </button>
+
+                {onLogout && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowProfileMenu(false);
+                      onLogout();
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 mt-1 rounded-lg text-[12px] text-rose-600 hover:bg-rose-50 hover:text-rose-700 font-semibold transition-colors text-left border-t border-gray-100"
+                  >
+                    <span className="material-symbols-outlined text-[16px] text-rose-500">logout</span>
+                    <span>Sair da Conta</span>
+                  </button>
+                )}
               </div>
             </div>
           )}

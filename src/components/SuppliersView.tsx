@@ -303,20 +303,20 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
 
   return (
     <div className="flex flex-col w-full relative">
-      <div className="p-6 flex flex-col gap-6 w-full max-w-[1600px] mx-auto animate-in fade-in duration-300">
+      <div className="p-6 flex flex-col gap-5 w-full max-w-[1600px] mx-auto animate-in fade-in duration-300">
         {/* Header & Global Action Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <h1 className="text-[26px] font-bold text-[#0b1c30] tracking-tight leading-none">
+              <h1 className="text-[24px] font-bold text-[#0b1c30] tracking-tight leading-none">
                 Gestão de Fornecedores
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full bg-[#eff4ff] text-[#0051d5] text-[11px] font-bold border border-[#dce9ff]">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#eff4ff] text-[#0051d5] text-[11px] font-semibold border border-[#dce9ff]">
                 Governança & Risco
               </span>
             </div>
-            <p className="text-[13px] text-[#45464d] mt-1">
-              Homologação de parceiros, compliance fiscal e exposição a risco de terceiros
+            <p className="text-[13px] text-slate-500 mt-1.5 flex items-center gap-2 flex-wrap">
+              <span>Homologação de parceiros e compliance fiscal de terceiros</span>
             </p>
           </div>
 
@@ -324,9 +324,9 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
             <button
               type="button"
               onClick={() => showToast('Exportando cadastro geral de fornecedores em CSV...')}
-              className="h-9 px-3.5 rounded-xl bg-white border border-[#e5eeff] text-[#0b1c30] hover:bg-[#eff4ff] text-[13px] font-semibold transition-colors flex items-center gap-1.5 shadow-sm"
+              className="h-9 px-3.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-[13px] font-medium transition-colors flex items-center gap-1.5 shadow-xs"
             >
-              <span className="material-symbols-outlined text-[18px]">download</span>
+              <span className="material-symbols-outlined text-[18px] text-slate-500">download</span>
               <span>Exportar CSV</span>
             </button>
 
@@ -335,7 +335,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                 type="button"
                 id="btn-new-supplier"
                 onClick={() => setIsDrawerOpen(true)}
-                className="h-9 px-4 rounded-xl bg-[#0051d5] hover:bg-[#003ea8] active:scale-[0.98] text-white text-[13px] font-bold transition-all flex items-center gap-1.5 shadow-md"
+                className="h-9 px-4 rounded-xl bg-[#0051d5] hover:bg-[#003ea8] active:scale-[0.98] text-white text-[13px] font-semibold transition-all flex items-center gap-1.5 shadow-xs"
               >
                 <span className="material-symbols-outlined text-[18px]">domain_add</span>
                 <span>Novo Fornecedor</span>
@@ -345,75 +345,75 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
         </div>
 
         {/* 4 Metric Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#45464d] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Total Registrado
               </span>
-              <span className="text-[28px] font-bold text-[#0b1c30] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-slate-900 tracking-tight leading-none mt-1">
                 {suppliers.length}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Base ativa corporativa</span>
+              <span className="text-[11px] text-slate-400 mt-1">Base ativa corporativa</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-[#eff4ff] text-[#0051d5] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">apartment</span>
+            <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0051d5] flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">apartment</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#059669] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Homologados & Ativos
               </span>
-              <span className="text-[28px] font-bold text-[#059669] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-emerald-600 tracking-tight leading-none mt-1">
                 {totalHomologados}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Certidões e CND válidas</span>
+              <span className="text-[11px] text-slate-400 mt-1">Certidões e CND válidas</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">verified_user</span>
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">verified_user</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#d97706] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Em Homologação
               </span>
-              <span className="text-[28px] font-bold text-[#d97706] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-amber-600 tracking-tight leading-none mt-1">
                 {totalEmHomologacao}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Processos abertos no jurídico</span>
+              <span className="text-[11px] text-slate-400 mt-1">Processos em análise</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#d97706] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">pending_actions</span>
+            <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">pending_actions</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#45464d] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Volume Financeiro YTD
               </span>
-              <span className="text-[28px] font-bold text-[#0b1c30] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-slate-900 tracking-tight leading-none mt-1">
                 R$ 48,2M
               </span>
-              <span className="text-[11px] text-[#059669] font-medium mt-1">Alocado em vigência</span>
+              <span className="text-[11px] text-slate-400 mt-1">Alocado em vigência</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-[#eff4ff] text-[#0051d5] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">payments</span>
+            <div className="w-9 h-9 rounded-lg bg-slate-50 text-slate-700 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">payments</span>
             </div>
           </div>
         </div>
 
         {/* Filter Bar */}
-        <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-wrap items-center justify-between gap-3">
+        <div className="p-3.5 bg-white rounded-xl border border-slate-200/80 shadow-xs flex flex-wrap items-center justify-between gap-2.5">
           <div className="relative flex-1 min-w-[280px]">
             <label htmlFor="filter-supplier-search" className="sr-only">
               Filtrar fornecedores por Razão Social, Nome Fantasia ou CNPJ
             </label>
-            <span className="material-symbols-outlined absolute left-3 top-2.5 text-gray-400 text-[18px]">
+            <span className="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">
               search
             </span>
             <input
@@ -422,7 +422,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Filtrar por Razão Social, Nome Fantasia ou CNPJ..."
-              className="w-full h-10 pl-9 pr-4 rounded-xl bg-[#eff4ff]/60 border border-[#dce9ff] text-[13px] text-[#0b1c30] placeholder:text-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#0051d5]/20"
+              className="w-full h-9 pl-9 pr-3 rounded-lg bg-slate-50/70 border border-slate-200 text-[13px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 transition-all"
             />
           </div>
 
@@ -434,7 +434,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
               id="filter-supplier-status"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="h-10 px-3 rounded-xl bg-white border border-[#dce9ff] text-[13px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0051d5]/20 cursor-pointer"
+              className="h-9 px-3 rounded-lg bg-white border border-slate-200 text-[13px] text-slate-700 focus:outline-none focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 cursor-pointer"
             >
               <option value="todos">Todos os Status</option>
               <option value="ativo">Homologados / Ativos</option>
@@ -449,7 +449,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
               id="filter-supplier-category"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="h-10 px-3 rounded-xl bg-white border border-[#dce9ff] text-[13px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0051d5]/20 cursor-pointer"
+              className="h-9 px-3 rounded-lg bg-white border border-slate-200 text-[13px] text-slate-700 focus:outline-none focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 cursor-pointer"
             >
               <option value="todas">Todas as Categorias</option>
               <option value="Tecnologia e Nuvem">Tecnologia e Nuvem</option>
@@ -468,11 +468,11 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
         </div>
 
         {/* Suppliers Data Table */}
-        <div className="bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] overflow-hidden">
+        <div className="bg-white rounded-xl border border-slate-200/80 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-[13px]">
               <thead>
-                <tr className="bg-[#eff4ff]/80 text-[#45464d] text-[11px] uppercase tracking-wider font-semibold border-b border-[#e5eeff]">
+                <tr className="bg-slate-50/75 text-slate-500 text-[11px] uppercase tracking-wider font-semibold border-b border-slate-200/80">
                   <th className="py-3 px-4">Fornecedor / CNPJ</th>
                   <th className="py-3 px-4">Representante Legal</th>
                   <th className="py-3 px-4">Atividades & Tags</th>
@@ -482,24 +482,24 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                   <th className="py-3 px-4 text-right">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-slate-100">
                 {filteredSuppliers.map((supplier) => (
                   <tr
                     key={supplier.id}
-                    className="hover:bg-[#eff4ff]/40 transition-colors group"
+                    className="hover:bg-slate-50/70 transition-colors group"
                   >
                     {/* Fornecedor */}
                     <td className="py-3 px-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#eff4ff] text-[#0051d5] flex items-center justify-center font-bold text-xs shrink-0 border border-[#dce9ff]">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0051d5] flex items-center justify-center font-bold text-xs shrink-0 border border-blue-100/60">
                           {supplier.razaoSocial.slice(0, 2).toUpperCase()}
                         </div>
                         <div className="flex flex-col min-w-0">
-                          <span className="text-[13px] font-bold text-[#0b1c30] group-hover:text-[#0051d5] transition-colors">
+                          <span className="text-[13px] font-semibold text-slate-900 group-hover:text-[#0051d5] transition-colors">
                             {supplier.razaoSocial}
                           </span>
-                          <span className="text-[11px] text-[#45464d]">{supplier.nomeFantasia}</span>
-                          <span className="text-[10px] font-mono text-gray-400 mt-0.5">
+                          <span className="text-[11px] text-slate-500">{supplier.nomeFantasia}</span>
+                          <span className="text-[10px] font-mono text-slate-400 mt-0.5">
                             CNPJ: {supplier.cnpj}
                           </span>
                         </div>
@@ -509,45 +509,53 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                     {/* Contato Principal */}
                     <td className="py-3 px-4">
                       <div className="flex flex-col">
-                        <span className="text-[12px] font-semibold text-[#0b1c30]">
+                        <span className="text-[12px] font-medium text-slate-800">
                           {supplier.contactName}
                         </span>
-                        <span className="text-[10px] text-gray-500">{supplier.contactRole}</span>
-                        <span className="text-[10px] text-[#0051d5] mt-0.5">{supplier.contactEmail}</span>
+                        <span className="text-[11px] text-slate-400">{supplier.contactRole}</span>
+                        <span className="text-[11px] text-[#0051d5] hover:underline mt-0.5">{supplier.contactEmail}</span>
                       </div>
                     </td>
 
-                    {/* Atividades Tags */}
+                    {/* Atividades Tags - Cleaned up to avoid visual clutter */}
                     <td className="py-3 px-4">
-                      <div className="flex flex-wrap gap-1 max-w-xs">
-                        {supplier.activities.map((act, i) => (
+                      <div className="flex items-center gap-1.5 flex-wrap max-w-xs">
+                        {supplier.activities.slice(0, 2).map((act, i) => (
                           <span
                             key={i}
-                            className="px-2 py-0.5 rounded-md bg-[#e5eeff] text-[#0b1c30] text-[10px] font-medium"
+                            className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-[11px] font-medium whitespace-nowrap"
                           >
                             {act}
                           </span>
                         ))}
+                        {supplier.activities.length > 2 && (
+                          <span
+                            title={supplier.activities.slice(2).join(', ')}
+                            className="px-1.5 py-0.5 rounded-md bg-slate-50 text-slate-400 border border-slate-200 text-[10px] font-medium cursor-help"
+                          >
+                            +{supplier.activities.length - 2}
+                          </span>
+                        )}
                       </div>
                     </td>
 
                     {/* Risco */}
                     <td className="py-3 px-4">
                       {supplier.riskLevel === 'baixo' && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-[#059669] text-[11px] font-bold border border-emerald-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium border border-emerald-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                           Baixo Risco
                         </span>
                       )}
                       {supplier.riskLevel === 'medio' && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-[#d97706] text-[11px] font-bold border border-amber-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#d97706]"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium border border-amber-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                           Médio Risco
                         </span>
                       )}
                       {supplier.riskLevel === 'alto' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-50 text-[#ba1a1a] text-[11px] font-bold border border-red-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#ba1a1a]"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-medium border border-rose-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
                           Alto Risco
                         </span>
                       )}
@@ -559,10 +567,10 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                         const stats = getSupplierStats(supplier);
                         return (
                           <div className="flex flex-col">
-                            <span className="text-[12px] font-bold text-[#0b1c30]">
+                            <span className="text-[12px] font-semibold text-slate-900">
                               {stats.count} {stats.count === 1 ? 'contrato' : 'contratos'}
                             </span>
-                            <span className="text-[11px] text-gray-500">
+                            <span className="text-[11px] text-slate-400">
                               R$ {stats.volume.toLocaleString('pt-BR')},00
                             </span>
                           </div>
@@ -573,17 +581,19 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                     {/* Status */}
                     <td className="py-3 px-4">
                       {supplier.status === 'ativo' && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-[#059669] text-[11px] font-semibold">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium border border-emerald-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                           Homologado
                         </span>
                       )}
                       {supplier.status === 'homologacao' && (
                         <div className="flex flex-col">
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-[#d97706] text-[11px] font-semibold">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium border border-amber-200/70">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                             Em Homologação
                           </span>
                           {supplier.statusReason && (
-                            <span className="text-[9px] text-gray-400 mt-0.5 max-w-[130px] truncate">
+                            <span className="text-[10px] text-slate-400 mt-0.5 max-w-[130px] truncate">
                               {supplier.statusReason}
                             </span>
                           )}
@@ -591,11 +601,12 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                       )}
                       {supplier.status === 'bloqueado' && (
                         <div className="flex flex-col">
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-50 text-[#ba1a1a] text-[11px] font-bold">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-medium border border-rose-200/70">
+                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
                             Bloqueado
                           </span>
                           {supplier.statusReason && (
-                            <span className="text-[9px] text-red-500 mt-0.5 max-w-[130px] truncate">
+                            <span className="text-[10px] text-rose-500 mt-0.5 max-w-[130px] truncate">
                               {supplier.statusReason}
                             </span>
                           )}
@@ -605,7 +616,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
 
                     {/* Ações */}
                     <td className="py-3 px-4 text-right">
-                      <div className="flex items-center justify-end gap-1.5">
+                      <div className="flex items-center justify-end gap-1">
                         <button
                           type="button"
                           id={`btn-view-supplier-${supplier.id}`}
@@ -616,7 +627,7 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                               showToast(`Filtrando contratos de ${supplier.razaoSocial}`);
                             }
                           }}
-                          className="h-8 px-2.5 rounded-lg bg-white border border-gray-200 hover:bg-[#eff4ff] text-[#0051d5] text-[12px] font-semibold transition-colors"
+                          className="h-7 px-2.5 rounded-lg border border-slate-200 hover:border-blue-200 hover:bg-blue-50/50 text-[#0051d5] text-[12px] font-medium transition-colors"
                         >
                           Ver Contratos
                         </button>
@@ -626,10 +637,10 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                             type="button"
                             id={`btn-delete-supplier-${supplier.id}`}
                             onClick={() => setSupplierToDelete(supplier)}
-                            className="p-1.5 rounded-lg text-gray-400 hover:text-[#ba1a1a] hover:bg-red-50 transition-colors"
+                            className="p-1 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
                             title="Excluir Fornecedor (Exclusivo Administrador)"
                           >
-                            <span className="material-symbols-outlined text-[18px]">delete</span>
+                            <span className="material-symbols-outlined text-[17px]">delete</span>
                           </button>
                         )}
                       </div>
@@ -638,6 +649,17 @@ export const SuppliersView: React.FC<SuppliersViewProps> = ({
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Table Footer Summary */}
+          <div className="p-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+            <span>
+              Exibindo <strong>{filteredSuppliers.length}</strong> de{' '}
+              <strong>{suppliers.length}</strong> fornecedores registrados
+            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-slate-400">Página 1 de 1</span>
+            </div>
           </div>
         </div>
       </div>

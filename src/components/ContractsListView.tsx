@@ -305,33 +305,32 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
 
   return (
     <div className="flex flex-col w-full relative">
-      <div className="p-6 flex flex-col gap-6 w-full max-w-[1600px] mx-auto animate-in fade-in duration-300">
-        {/* Executive Banner */}
-        <div className="p-6 bg-gradient-to-r from-[#131b2e] via-[#1a2542] to-[#131b2e] text-white rounded-3xl shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-4 border border-white/10 relative overflow-hidden">
-          <div className="flex flex-col z-10">
+      <div className="p-6 flex flex-col gap-5 w-full max-w-[1600px] mx-auto animate-in fade-in duration-300">
+        {/* Clean Executive Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#316bf3] text-white text-[11px] font-bold uppercase tracking-wider">
-                Painel Executivo
+              <h1 className="text-[24px] font-bold text-[#0b1c30] tracking-tight leading-none">
+                Repositório Central de Contratos
+              </h1>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#eff4ff] text-[#0051d5] text-[11px] font-semibold border border-[#dce9ff]">
+                Ciclo de Vida (CLM)
               </span>
-              <span className="text-[12px] text-gray-300 font-medium">Gestão Unificada de Contratos</span>
             </div>
-            <h1 className="text-[26px] font-bold tracking-tight text-white mt-1">
-              Repositório Central & Ciclo de Vida (CLM)
-            </h1>
-            <p className="text-[13px] text-gray-300 mt-0.5">
-              Exposição Financeira Total:{' '}
-              <strong className="text-white font-bold">R$ 18.420.900,00</strong> • Taxa de conformidade:{' '}
-              <strong className="text-emerald-400 font-bold">98.2%</strong>
+            <p className="text-[13px] text-slate-500 mt-1.5 flex items-center gap-2 flex-wrap">
+              <span>Exposição Financeira: <strong className="text-slate-800 font-semibold">R$ 18.420.900,00</strong></span>
+              <span className="text-slate-300">•</span>
+              <span>Conformidade: <strong className="text-emerald-600 font-semibold">98.2%</strong></span>
             </p>
           </div>
 
-          <div className="flex items-center gap-3 z-10">
+          <div className="flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => showToast('Exportando relatório consolidado em formato CSV/Excel...')}
-              className="h-10 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white text-[13px] font-semibold transition-all flex items-center gap-2 border border-white/10"
+              className="h-9 px-3.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-[13px] font-medium transition-colors flex items-center gap-1.5 shadow-xs"
             >
-              <span className="material-symbols-outlined text-[18px]">table_view</span>
+              <span className="material-symbols-outlined text-[18px] text-slate-500">table_view</span>
               <span>Exportar CSV</span>
             </button>
 
@@ -340,7 +339,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                 type="button"
                 id="btn-new-contract-list"
                 onClick={() => setIsDrawerOpen(true)}
-                className="h-10 px-4 rounded-xl bg-[#0051d5] hover:bg-[#003ea8] active:scale-[0.98] text-white text-[13px] font-semibold transition-all flex items-center gap-2 shadow-lg shadow-[#0051d5]/30"
+                className="h-9 px-4 rounded-xl bg-[#0051d5] hover:bg-[#003ea8] active:scale-[0.98] text-white text-[13px] font-semibold transition-all flex items-center gap-1.5 shadow-xs"
               >
                 <span className="material-symbols-outlined text-[18px]">add</span>
                 <span>Novo Instrumento</span>
@@ -349,84 +348,86 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
           </div>
         </div>
 
-        {/* 4 KPI Metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+        {/* 4 Clean Minimalist KPI Metrics */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#45464d] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Volume Total
               </span>
-              <span className="text-[28px] font-bold text-[#0b1c30] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-slate-900 tracking-tight leading-none mt-1">
                 {countByStatus.todos}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Instrumentos cadastrados</span>
+              <span className="text-[11px] text-slate-400 mt-1">Instrumentos cadastrados</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-[#eff4ff] text-[#0051d5] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">folder_copy</span>
+            <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#0051d5] flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">folder_copy</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#059669] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Vigentes e Ativos
               </span>
-              <span className="text-[28px] font-bold text-[#059669] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-emerald-600 tracking-tight leading-none mt-1">
                 {countByStatus.vigente}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">+4 novos este mês</span>
+              <span className="text-[11px] text-slate-400 mt-1">+4 novos este mês</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#059669] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">check_circle</span>
+            <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">check_circle</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#d97706] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Atenção (30-60d)
               </span>
-              <span className="text-[28px] font-bold text-[#d97706] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-amber-600 tracking-tight leading-none mt-1">
                 {countByStatus.avencer}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Em risco de renovação</span>
+              <span className="text-[11px] text-slate-400 mt-1">Em risco de renovação</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#d97706] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">warning</span>
+            <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">warning</span>
             </div>
           </div>
 
-          <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-between">
+          <div className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-[11px] uppercase tracking-wider text-[#ba1a1a] font-semibold">
+              <span className="text-[12px] text-slate-500 font-medium">
                 Pendente de Assinatura
               </span>
-              <span className="text-[28px] font-bold text-[#ba1a1a] tracking-tight leading-none mt-1">
+              <span className="text-[24px] font-bold text-rose-600 tracking-tight leading-none mt-1">
                 {countByStatus.sem_assinatura}
               </span>
-              <span className="text-[11px] text-[#45464d] mt-1">Aguardando rubricas</span>
+              <span className="text-[11px] text-slate-400 mt-1">Aguardando rubricas</span>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-red-50 text-[#ba1a1a] flex items-center justify-center">
-              <span className="material-symbols-outlined text-[22px]">draw</span>
+            <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px]">draw</span>
             </div>
           </div>
         </div>
 
-        {/* Filter Toolbar & Tab Bar */}
-        <div className="p-4 bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col gap-3">
+        {/* Clean Filter Toolbar & Tab Bar */}
+        <div className="p-3.5 bg-white rounded-xl border border-slate-200/80 shadow-xs flex flex-col gap-3">
           {/* Segmented Status Tabs */}
-          <div className="flex items-center gap-1 overflow-x-auto pb-1 border-b border-gray-100">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 border-b border-slate-100">
             <button
               type="button"
               onClick={() => setActiveFilterTab('todos')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 activeFilterTab === 'todos'
-                  ? 'bg-[#0051d5] text-white shadow-sm'
-                  : 'text-[#45464d] hover:bg-[#eff4ff]'
+                  ? 'bg-[#0051d5] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>Todos</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px]">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                activeFilterTab === 'todos' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
+              }`}>
                 {countByStatus.todos}
               </span>
             </button>
@@ -434,14 +435,16 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
             <button
               type="button"
               onClick={() => setActiveFilterTab('vigente')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 activeFilterTab === 'vigente'
-                  ? 'bg-[#0051d5] text-white shadow-sm'
-                  : 'text-[#45464d] hover:bg-[#eff4ff]'
+                  ? 'bg-[#0051d5] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>Vigentes</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-800 text-[10px]">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                activeFilterTab === 'vigente' ? 'bg-white/20 text-white' : 'bg-emerald-50 text-emerald-700'
+              }`}>
                 {countByStatus.vigente}
               </span>
             </button>
@@ -449,14 +452,16 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
             <button
               type="button"
               onClick={() => setActiveFilterTab('avencer')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 activeFilterTab === 'avencer'
-                  ? 'bg-[#0051d5] text-white shadow-sm'
-                  : 'text-[#45464d] hover:bg-[#eff4ff]'
+                  ? 'bg-[#0051d5] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>A Vencer em 30/60 dias</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-amber-100 text-amber-800 text-[10px]">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                activeFilterTab === 'avencer' ? 'bg-white/20 text-white' : 'bg-amber-50 text-amber-700'
+              }`}>
                 {countByStatus.avencer}
               </span>
             </button>
@@ -464,14 +469,16 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
             <button
               type="button"
               onClick={() => setActiveFilterTab('sem_assinatura')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 activeFilterTab === 'sem_assinatura'
-                  ? 'bg-[#0051d5] text-white shadow-sm'
-                  : 'text-[#45464d] hover:bg-[#eff4ff]'
+                  ? 'bg-[#0051d5] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>Sem Assinatura</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-red-100 text-red-800 text-[10px]">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                activeFilterTab === 'sem_assinatura' ? 'bg-white/20 text-white' : 'bg-rose-50 text-rose-700'
+              }`}>
                 {countByStatus.sem_assinatura}
               </span>
             </button>
@@ -479,26 +486,28 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
             <button
               type="button"
               onClick={() => setActiveFilterTab('expirado')}
-              className={`px-3 py-1.5 rounded-xl text-[12px] font-bold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-[12px] font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
                 activeFilterTab === 'expirado'
-                  ? 'bg-[#0051d5] text-white shadow-sm'
-                  : 'text-[#45464d] hover:bg-[#eff4ff]'
+                  ? 'bg-[#0051d5] text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}
             >
               <span>Expirados</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-gray-200 text-gray-700 text-[10px]">
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+                activeFilterTab === 'expirado' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
+              }`}>
                 {countByStatus.expirado}
               </span>
             </button>
           </div>
 
           {/* Search and Filters Controls */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-2.5 pt-0.5">
             <div className="relative flex-1 min-w-[260px]">
               <label htmlFor="contracts-search" className="sr-only">
                 Filtrar por código, razão social, objeto
               </label>
-              <span className="material-symbols-outlined absolute left-3 top-2.5 text-gray-400 text-[18px]">
+              <span className="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">
                 search
               </span>
               <input
@@ -507,7 +516,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Filtrar por código, razão social, objeto..."
-                className="w-full h-10 pl-9 pr-4 rounded-xl bg-[#eff4ff]/60 border border-[#dce9ff] text-[13px] text-[#0b1c30] placeholder:text-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#0051d5]/20"
+                className="w-full h-9 pl-9 pr-3 rounded-lg bg-slate-50/70 border border-slate-200 text-[13px] text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 transition-all"
               />
             </div>
 
@@ -518,7 +527,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
               id="contracts-filter-supplier"
               value={selectedSupplierFilter}
               onChange={(e) => setSelectedSupplierFilter(e.target.value)}
-              className="h-10 px-3 rounded-xl bg-white border border-[#dce9ff] text-[13px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0051d5]/20 cursor-pointer"
+              className="h-9 px-3 rounded-lg bg-white border border-slate-200 text-[13px] text-slate-700 focus:outline-none focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 cursor-pointer"
             >
               <option value="">Todos os Fornecedores</option>
               {suppliers.map((s) => (
@@ -535,7 +544,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
               id="contracts-filter-validity"
               value={validityFilter}
               onChange={handleValidityFilterChange}
-              className="h-10 px-3 rounded-xl bg-white border border-[#dce9ff] text-[13px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0051d5]/20 cursor-pointer"
+              className="h-9 px-3 rounded-lg bg-white border border-slate-200 text-[13px] text-slate-700 focus:outline-none focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 cursor-pointer"
             >
               <option value="todas">Todas as Vigências</option>
               <option value="vigente_ano">Vigente no Ano Atual ({new Date().getFullYear()})</option>
@@ -549,7 +558,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
               id="contracts-filter-category"
               value={categoryFilter}
               onChange={handleCategoryFilterChange}
-              className="h-10 px-3 rounded-xl bg-white border border-[#dce9ff] text-[13px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0051d5]/20 cursor-pointer"
+              className="h-9 px-3 rounded-lg bg-white border border-slate-200 text-[13px] text-slate-700 focus:outline-none focus:border-[#0051d5] focus:ring-2 focus:ring-[#0051d5]/10 cursor-pointer"
             >
               <option value="todas">Todas as Modalidades</option>
               <option value="saas_nuvem">SaaS & Nuvem</option>
@@ -560,11 +569,11 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
         </div>
 
         {/* Contracts Data Table */}
-        <div className="bg-white rounded-2xl border border-[#e5eeff] shadow-[0_1px_3px_rgba(0,0,0,0.04)] overflow-hidden">
+        <div className="bg-white rounded-xl border border-slate-200/80 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-[13px]">
               <thead>
-                <tr className="bg-[#eff4ff]/80 text-[#45464d] text-[11px] uppercase tracking-wider font-semibold border-b border-[#e5eeff]">
+                <tr className="bg-slate-50/75 text-slate-500 text-[11px] uppercase tracking-wider font-semibold border-b border-slate-200/80">
                   <th className="py-3 px-4">Identificação / Objeto</th>
                   <th className="py-3 px-4">Fornecedor Contratado</th>
                   <th className="py-3 px-4">Vigência & Timeline</th>
@@ -573,15 +582,15 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                   <th className="py-3 px-4 text-right">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-slate-100">
                 {filteredContracts.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="py-12 px-4 text-center">
                       <div className="flex flex-col items-center justify-center gap-2">
-                        <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400 mb-1 border border-slate-200">
-                          <span className="material-symbols-outlined text-[28px]">search_off</span>
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 mb-1 border border-slate-200">
+                          <span className="material-symbols-outlined text-[26px]">search_off</span>
                         </div>
-                        <p className="text-[14px] font-bold text-slate-800">
+                        <p className="text-[14px] font-semibold text-slate-800">
                           Nenhum contrato encontrado
                         </p>
                         <p className="text-[12px] text-slate-500 max-w-sm">
@@ -595,27 +604,25 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                   <tr
                     key={contract.id}
                     onClick={() => onSelectContract(contract)}
-                    className="hover:bg-[#eff4ff]/40 transition-colors cursor-pointer group"
+                    className="hover:bg-slate-50/70 transition-colors cursor-pointer group"
                   >
                     {/* Contract ID & Title */}
                     <td className="py-3 px-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#eff4ff] text-[#0051d5] flex items-center justify-center shrink-0 border border-[#dce9ff]">
-                          <span className="material-symbols-outlined text-[20px]">description</span>
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#0051d5] flex items-center justify-center shrink-0 border border-blue-100/60">
+                          <span className="material-symbols-outlined text-[18px]">description</span>
                         </div>
                         <div className="flex flex-col min-w-0">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-[13px] font-bold text-[#0b1c30] group-hover:text-[#0051d5] transition-colors truncate">
-                              {contract.title}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2 text-[11px] text-gray-500 font-mono mt-0.5">
-                            <span className="font-bold text-[#0051d5]">{contract.code}</span>
+                          <span className="text-[13px] font-semibold text-slate-900 group-hover:text-[#0051d5] transition-colors truncate">
+                            {contract.title}
+                          </span>
+                          <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-mono mt-0.5">
+                            <span className="font-semibold text-[#0051d5]">{contract.code}</span>
                             <span>•</span>
                             <span>{contract.internalId}</span>
                             {contract.hasOcr && (
-                              <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-purple-50 text-purple-700 text-[9px] font-semibold border border-purple-200">
-                                OCR Validado
+                              <span className="inline-flex items-center px-1.5 py-0.2 rounded bg-purple-50 text-purple-700 text-[9px] font-medium border border-purple-200/60">
+                                OCR
                               </span>
                             )}
                           </div>
@@ -626,10 +633,10 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                     {/* Supplier */}
                     <td className="py-3 px-4">
                       <div className="flex flex-col">
-                        <span className="text-[12px] font-semibold text-[#0b1c30]">
+                        <span className="text-[12px] font-medium text-slate-800">
                           {contract.supplierName}
                         </span>
-                        <span className="text-[11px] font-mono text-gray-500">
+                        <span className="text-[11px] font-mono text-slate-400">
                           {contract.supplierCnpj}
                         </span>
                       </div>
@@ -637,26 +644,26 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
 
                     {/* Timeline & Progress */}
                     <td className="py-3 px-4">
-                      <div className="flex flex-col gap-1 w-44">
-                        <div className="flex justify-between text-[11px] text-gray-600">
+                      <div className="flex flex-col gap-1 w-40">
+                        <div className="flex justify-between text-[11px] text-slate-500">
                           <span>
                             {contract.startDate.slice(0, 7)} a {contract.endDate.slice(0, 7)}
                           </span>
                           <span
-                            className={`font-bold ${
-                              contract.remainingDays <= 45 ? 'text-[#b45309]' : 'text-gray-700'
+                            className={`font-semibold ${
+                              contract.remainingDays <= 45 ? 'text-amber-600' : 'text-slate-600'
                             }`}
                           >
                             {contract.remainingDays > 0 ? `${contract.remainingDays}d` : 'Expirado'}
                           </span>
                         </div>
-                        <div className="w-full h-1.5 bg-[#eff4ff] rounded-full overflow-hidden">
+                        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                           <div
-                            className={`h-full rounded-full ${
+                            className={`h-full rounded-full transition-all ${
                               contract.status === 'expirado'
-                                ? 'bg-gray-400'
+                                ? 'bg-slate-300'
                                 : contract.remainingDays <= 45
-                                ? 'bg-[#f59e0b]'
+                                ? 'bg-amber-500'
                                 : 'bg-[#0051d5]'
                             }`}
                             style={{ width: `${Math.min(100, contract.progressPercent)}%` }}
@@ -668,27 +675,27 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                     {/* Signature Status Badge */}
                     <td className="py-3 px-4">
                       {contract.status === 'vigente' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#059669] text-[11px] font-bold border border-emerald-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-medium border border-emerald-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                           Assinado Digitalmente
                         </span>
                       )}
                       {contract.status === 'avencer' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-[#d97706] text-[11px] font-bold border border-amber-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#d97706] animate-pulse"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-medium border border-amber-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                           A Vencer (Risco)
                         </span>
                       )}
                       {contract.status === 'sem_assinatura' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-50 text-[#ba1a1a] text-[11px] font-bold border border-red-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#ba1a1a]"></span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-medium border border-rose-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
                           Sem Assinatura
                         </span>
                       )}
                       {contract.status === 'expirado' && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700 text-[11px] font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
-                          Instrumento Expirado
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-medium border border-slate-200/70">
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                          Expirado
                         </span>
                       )}
                     </td>
@@ -696,11 +703,11 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                     {/* Total Value */}
                     <td className="py-3 px-4">
                       <div className="flex flex-col">
-                        <span className="text-[13px] font-bold text-[#0b1c30]">
+                        <span className="text-[13px] font-semibold text-slate-900">
                           R$ {contract.totalValue.toLocaleString('pt-BR')},00
                         </span>
                         {contract.monthlyValue && (
-                          <span className="text-[11px] text-gray-500">
+                          <span className="text-[11px] text-slate-400">
                             R$ {contract.monthlyValue.toLocaleString('pt-BR')}/mês
                           </span>
                         )}
@@ -709,7 +716,7 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
 
                     {/* Actions */}
                     <td className="py-3 px-4 text-right">
-                      <div className="flex items-center justify-end gap-1.5">
+                      <div className="flex items-center justify-end gap-1">
                         <button
                           type="button"
                           id={`btn-view-contract-${contract.id}`}
@@ -717,9 +724,9 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                             e.stopPropagation();
                             onSelectContract(contract);
                           }}
-                          className="h-8 px-2.5 rounded-lg bg-white border border-gray-200 hover:bg-[#eff4ff] text-[#0051d5] text-[12px] font-semibold transition-colors flex items-center gap-1"
+                          className="h-7 px-2.5 rounded-lg border border-slate-200 hover:border-blue-200 hover:bg-blue-50/50 text-[#0051d5] text-[12px] font-medium transition-colors flex items-center gap-1"
                         >
-                          <span className="material-symbols-outlined text-[16px]">visibility</span>
+                          <span className="material-symbols-outlined text-[15px]">visibility</span>
                           <span>Ver</span>
                         </button>
 
@@ -730,10 +737,10 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                             e.stopPropagation();
                             showToast(`Baixando PDF assinado de ${contract.code}...`);
                           }}
-                          className="p-1.5 rounded-lg text-gray-500 hover:text-[#0b1c30] hover:bg-gray-100 transition-colors"
+                          className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
                           title="Baixar PDF"
                         >
-                          <span className="material-symbols-outlined text-[18px]">download</span>
+                          <span className="material-symbols-outlined text-[17px]">download</span>
                         </button>
 
                         {currentRole === 'administrador' && (
@@ -744,10 +751,10 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
                               e.stopPropagation();
                               setContractToDelete(contract);
                             }}
-                            className="p-1.5 rounded-lg text-gray-400 hover:text-[#ba1a1a] hover:bg-red-50 transition-colors"
+                            className="p-1 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
                             title="Excluir contrato (Exclusivo Administrador)"
                           >
-                            <span className="material-symbols-outlined text-[18px]">delete</span>
+                            <span className="material-symbols-outlined text-[17px]">delete</span>
                           </button>
                         )}
                       </div>
@@ -760,13 +767,13 @@ export const ContractsListView: React.FC<ContractsListViewProps> = ({
           </div>
 
           {/* Table Footer Summary & Pagination */}
-          <div className="p-3 bg-gray-50/70 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
+          <div className="p-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
             <span>
               Exibindo <strong>{filteredContracts.length}</strong> de{' '}
               <strong>{contracts.length}</strong> contratos registrados
             </span>
             <div className="flex items-center gap-2">
-              <span className="text-gray-400">Página 1 de 1</span>
+              <span className="text-slate-400">Página 1 de 1</span>
             </div>
           </div>
         </div>
