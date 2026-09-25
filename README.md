@@ -14,6 +14,7 @@
 
 ##  Sumário
 
+- [ Repositórios GitHub Desacoplados (Frontend & Backend)](#-repositórios-github-desacoplados-frontend--backend)
 - [Sobre o Projeto](#-sobre-o-projeto)
 - [Funcionalidades Principais](#-funcionalidades-principais)
   - [1. Dashboard Executivo & Analítico](#1-dashboard-executivo--analítico)
@@ -32,7 +33,39 @@
 
 ---
 
-##  Sobre o Projeto
+## 📦 Repositórios GitHub Desacoplados (Frontend & Backend)
+
+O sistema foi 100% dividido em dois projetos independentes, prontos para serem colocados em repositórios separados no GitHub:
+
+### 1. 🖥️ Repositório Frontend (`/frontend`)
+- **Tecnologias**: React 18, TypeScript, Vite, Tailwind CSS v4.
+- **Isolamento**: Cliente SPA desacoplado que consome a API REST via variável `VITE_API_URL`.
+- **Como publicar no GitHub**:
+  ```bash
+  cd frontend
+  git init
+  git add .
+  git commit -m "feat: initial commit frontend"
+  git branch -M main
+  git remote add origin https://github.com/SEU_USUARIO/mais-contratos-frontend.git
+  git push -u origin main
+  ```
+
+### 2. 📡 Repositório Backend (`/backend`)
+- **Tecnologias**: Node.js, Express, TypeScript, Firebase Firestore, Docker.
+- **Isolamento**: Servidor REST autônomo com rotas modulares (`/api/contracts`, `/api/suppliers`, `/api/users`, `/api/audit`, `/api/stats`, `/api/settings`), CORS configurável e Dockerfile pronto para deploy.
+- **Como publicar no GitHub**:
+  ```bash
+  cd backend
+  git init
+  git add .
+  git commit -m "feat: initial commit backend"
+  git branch -M main
+  git remote add origin https://github.com/SEU_USUARIO/mais-contratos-backend.git
+  git push -u origin main
+  ```
+
+---
 
 O **Mais Contratos** é uma solução completa para centralizar e otimizar toda a esteira de instrumentos contratuais corporativos, fornecedores homologados e fluxos de renovação. O sistema mitiga riscos de perda de prazos de rescisão ou reajuste, previne pagamentos indevidos, garante conformidade regulatória (LGPD e ICP-Brasil) e confere rastreabilidade ponta a ponta por meio de trilhas de auditoria criptográficas.
 

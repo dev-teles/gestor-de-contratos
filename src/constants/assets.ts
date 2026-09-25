@@ -1,6 +1,0 @@
-// Direct links from the user's provided HTML
-export const ASSETS = {
-  logo: 'https://lh3.googleusercontent.com/aida/AEtjO1WRtTipTrCmmOfiA6Za8xeJSNJ8ppytV5FpJsPxRflkCRGHWIciYQscYoXI3lH4FWwiAPU6vp_O_UlrsNI7yNCTKm4iSVyc3yQYMO7n-D1SK2b51ngJSS6c5IcVXdL3YUgfOdQcrcVt76KmQApOinxvm22R_3YWlc29UBUF7vm5rgYvsxrqcItL369R0r7ML56MS9sxM5hPEnILOYgtl3JZGJ0TTIgS_mbNVnDPzWUHGEKS5_ygI5b3eoeG',
-  carlosAvatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCRFakRhqMwa01d88hD9NAGQZ2zGoycmVTVEDoU_KbmL1ECPxtGnE14eUsWnAUhORFDPzQijtcz-Sm-t0pUEHV4nWPgSacvsX8xu5UHT1HRWFJodoTdXe4glizYKYEc-4nbmC1Ssd0eU4OIrXVsuQ0HE9v4758qOyNJ7Vo-WyieCjsuzeyeEU5N5-fncAyWLmStx5V3CVMqO047FWkPGOaI8wMjqW3YhUmaFDELHB2Z_65MxaK9kGTeig',
-  carlosPhotoFallback: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
-};

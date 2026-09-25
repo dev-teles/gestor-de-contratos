@@ -1,0 +1,36 @@
+{
+  "name": "mais-contratos-backend",
+  "version": "1.0.0",
+  "description": "Backend REST API para o sistema corporativo Mais Contratos",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "contracts",
+    "express",
+    "backend",
+    "api",
+    "firestore",
+    "typescript"
+  ],
+  "author": "Mais Contratos Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase": "^11.9.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

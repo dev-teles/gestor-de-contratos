@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "users": {
+      "title": "Colaboradores e Usuários",
+      "description": "Cadastro corporativo de colaboradores com alçadas e perfis de governança",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "department": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "matricula": { "type": "string" },
+        "documentNumber": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string", "enum": ["administrador", "editor", "visualizador"] },
+        "status": { "type": "string", "enum": ["ativo", "pendente", "bloqueado"] },
+        "twoFactorEnabled": { "type": "boolean" },
+        "lastLogin": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "department", "role", "status"]
+    },
+    "contracts": {
+      "title": "Contratos Corporativos",
+      "description": "Instrumentos contratuais do Grupo RioMais",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "supplierId": { "type": "string" },
+        "supplierName": { "type": "string" },
+        "supplierCnpj": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "type": "string", "enum": ["ativo", "em_aprovacao", "vencido", "renovacao", "cancelado"] },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "totalValue": { "type": "number" },
+        "monthlyValue": { "type": "number" },
+        "department": { "type": "string" },
+        "responsible": { "type": "string" },
+        "autoRenew": { "type": "boolean" },
+        "notificationEmail": { "type": "string" }
+      },
+      "required": ["id", "code", "title", "supplierId", "status", "startDate", "endDate", "totalValue"]
+    },
+    "suppliers": {
+      "title": "Fornecedores",
+      "description": "Cadastro e homologação de fornecedores corporativos",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "cnpj": { "type": "string" },
+        "razaoSocial": { "type": "string" },
+        "nomeFantasia": { "type": "string" },
+        "riskLevel": { "type": "string", "enum": ["baixo", "medio", "alto"] },
+        "complianceScore": { "type": "number" },
+        "status": { "type": "string", "enum": ["ativo", "homologacao", "bloqueado"] }
+      },
+      "required": ["id", "cnpj", "razaoSocial", "status"]
+    },
+    "auditLogs": {
+      "title": "Trilha de Auditoria Forense",
+      "description": "Logs de ações e segurança imutáveis",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "user": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "role": { "type": "string" },
+        "action": { "type": "string" },
+        "detail": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "type": { "type": "string" }
+      },
+      "required": ["id", "user", "action", "detail", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Coleção de colaboradores da organização"
+    },
+    "/contracts/{contractId}": {
+      "schema": "contracts",
+      "description": "Coleção de contratos mantidos no sistema"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": "suppliers",
+      "description": "Coleção de fornecedores cadastrados"
+    },
+    "/audit_logs/{logId}": {
+      "schema": "auditLogs",
+      "description": "Registros de auditoria forense do sistema"
+    }
+  }
+}
